@@ -6,9 +6,11 @@
 <div class="umlw-wrapper">
 	<!-- Avatar Section -->
 	<div class="umlw-login-avatar">
+		<?php if ( $show_avatar ) { ?>
 		<div class="um-col-131">
 			<a href="<?php echo esc_url( um_user_profile_url() ); ?>" class="um-profile-photo-img" title="<?php /* translators: Placeholder for user display name. */ echo sprintf( esc_attr__( 'Welcome %s', 'login-widget-for-ultimate-member' ), esc_attr( um_user( 'display_name' ) ) ); ?>"><?php echo wp_kses_post( get_avatar( $user_id ) ); ?></a>
 		</div>
+		<?php } ?>
 		<div class="uml-header-info">
 			<strong>
 			<a href="<?php echo esc_url( um_user_profile_url() ); ?>" class="uml-name-link"><?php echo esc_html( um_user( 'display_name' ) ); ?></a>

@@ -1,0 +1,34 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "suiteplugins/um-login",
+	"version": "1.0.0",
+	"title": "Login Block for Ultimate Member",
+	"category": "widgets",
+	"icon": "smiley",
+	"attributes": {
+		"form_id": {
+			"type": "integer",
+			"default": 0
+		}
+	},
+	"keywords": [
+		"login",
+		"ultimate member",
+		"um",
+		"member",
+		"form",
+		"logout",
+		"log in",
+		"sign in",
+		"sign out"
+	],
+	"description": "Shows a login form for Ultimate Member users.",
+	"example": {},
+	"supports": {
+		"html": false
+	},
+	"textdomain": "login-widget-for-ultimate-member",
+	"editorScript": "file:./index.js",
+	"style": "file:./style.css"
+}
