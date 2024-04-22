@@ -4,7 +4,7 @@
  * Plugin URI: http://www.suiteplugins.com
  * Description: A login widget for Ultimate Member.
  * Author: SuitePlugins
- * Version: 1.0.9.8
+ * Version: 1.1.0
  * Author URI: http://www.suiteplugins.com
  * Text Domain: login-widget-for-ultimate-member
  * Domain Path: /languages
@@ -86,6 +86,8 @@ function um_login_widget_render_block( $attributes ) {
         'show_logout'      => true,
         'show_account'    => true,
         'show_edit_profile' => true,
+        'show_profile_url' => true,
+        'show_profile_tabs' => true,
     );
 
     $args = wp_parse_args( $attributes, $defaults );
@@ -120,6 +122,18 @@ function um_login_widget_render_block( $attributes ) {
         $args['show_edit_profile'] = false;
     }
 
+    if ( wp_validate_boolean( $args['show_profile_url'] ) ) {
+        $args['show_profile_url'] = true;
+    } else {
+        $args['show_profile_url'] = false;
+    }
+
+    if ( wp_validate_boolean( $args['show_profile_tabs'] ) ) {
+        $args['show_profile_tabs'] = true;
+    } else {
+        $args['show_profile_tabs'] = false;
+    }
+
     $args = apply_filters( 'um_login_widget_render_block', $args );
     ob_start();
     ?>
@@ -147,12 +161,6 @@ function um_login_widget_register_block() {
 
     register_block_type( __DIR__ . '/build',
     array(
-        'attributes'      => array(
-            'form_id' => array(
-                'type'    => 'integer',
-                'default' => 0,
-            ),
-        ),
         'render_callback' => 'um_login_widget_render_block',
      ) );
 }

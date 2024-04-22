@@ -12,20 +12,28 @@
 		</div>
 		<?php } ?>
 		<div class="uml-header-info">
+			<?php if ( $show_profile_url ) { ?>
 			<strong>
-			<a href="<?php echo esc_url( um_user_profile_url() ); ?>" class="uml-name-link"><?php echo esc_html( um_user( 'display_name' ) ); ?></a>
+				<a href="<?php echo esc_url( um_user_profile_url() ); ?>" class="uml-name-link"><?php echo esc_html( um_user( 'display_name' ) ); ?></a>
 			</strong>
+			<?php } ?>
 			<div>
 				<?php do_action( 'umlw_before_logout', $user_id ); ?>
+				<?php if ( $show_edit_profile ) { ?>
 				<div class="uml-profile-link">
 					<a href="<?php echo esc_url( um_edit_profile_url() ); ?>" class="real_url"><?php esc_html_e( 'Edit Profile', 'login-widget-for-ultimate-member' ); ?></a>
 				</div>
+				<?php } ?>
+				<?php if ( $show_account ) { ?>
 				<div class="uml-profile-link">
 					<a href="<?php echo esc_url( um_get_core_page( 'account' ) ); ?>" class="real_url"><?php esc_html_e( 'My Account', 'login-widget-for-ultimate-member' ); ?></a>
 				</div>
+				<?php } ?>
+				<?php if ( $show_logout ) { ?>
 				<div class="uml-profile-link">
 					<a href="<?php echo esc_url( um_get_core_page( 'logout' ) ); ?>" class="real_url"><?php esc_html_e( 'Logout', 'login-widget-for-ultimate-member' ); ?></a>
 				</div>
+				<?php } ?>
 				<?php do_action( 'umlw_after_logout', $user_id ); ?>
 			</div>
 		</div>
@@ -37,7 +45,7 @@
 	<?php
 	if ( function_exists( 'UM' ) ) {
 
-		if ( ! UM()->options()->get( 'profile_menu' ) ) {
+		if ( ! $show_profile_tabs || ! UM()->options()->get( 'profile_menu' ) ) {
 			return;
 		}
 

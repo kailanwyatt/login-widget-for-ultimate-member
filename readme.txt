@@ -1,10 +1,10 @@
 === Login Widget for Ultimate Member ===
-Contributors: suiteplugins
+Contributors: suiteplugins, kailanwyatt
 Tags: ultimate member, ultimate member login, login widget, ultimate member widget, ultimatemember login
 Donate link: https://suiteplugins.com/donate/
 Requires at least: 4.1
 Tested up to: 6.5.2
-Stable tag: 1.0.9.8
+Stable tag: 1.1.0
 Requires PHP: 5.6
 License: GNU Version 2 or Any Later Version
 License URI: http://www.gnu.org/licenses/gpl-3.0.txt
@@ -102,8 +102,10 @@ Nothing right now.
 * Tested WordPress 6.2.2
 * Gearing up for Elementor widget and Gutenberg block
 
-= 1.0.9.8 =
-
+= 1.1.0 =
+* Added Block for Login Form and Widget
+* Tested with WordPress 6.5.2
+* Test with Ultimate Member 2.8.5
 
 == Upgrade Notice ==
 None yet.

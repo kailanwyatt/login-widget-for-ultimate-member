@@ -58,11 +58,29 @@ class UM_Login_Core {
      * Load login form
      */
     public function um_load_login_form() {
+        // phpcs:ignore WordPress.Security.NonceVerification.Missing
         if ( ! isset( $_POST['form_id'] ) ) {
             wp_send_json_error( __( 'Invalid form ID', 'login-widget-for-ultimate-member' ) );
         }
         $form_id = sanitize_text_field( absint( $_POST['form_id'] ) );
-        echo um_login_widget_render_block( array( 'form_id' => $form_id ) );
+
+        $show_profile_url = isset( $_POST['show_profile_url'] ) ? sanitize_text_field( $_POST['show_profile_url'] ) : true;
+        $show_profile_tabs = isset( $_POST['show_profile_tabs'] ) ? sanitize_text_field( $_POST['show_profile_tabs'] ) : true;
+        $show_logout = isset( $_POST['show_logout'] ) ? sanitize_text_field( $_POST['show_logout'] ) : true;
+        $show_edit_profile = isset( $_POST['show_edit_profile'] ) ? sanitize_text_field( $_POST['show_edit_profile'] ) : true;
+        $show_account = isset( $_POST['show_account'] ) ? sanitize_text_field( $_POST['show_account'] ) : true;
+        $show_avatar = isset( $_POST['show_avatar'] ) ? sanitize_text_field( $_POST['show_avatar'] ) : true;
+
+        $args = array( 
+            'form_id' => $form_id,
+            'show_profile_url' => $show_profile_url,
+            'show_avatar' => $show_avatar,
+            'show_profile_tabs' => $show_profile_tabs,
+            'show_logout' => $show_logout,
+            'show_edit_profile' => $show_edit_profile,
+            'show_account' => $show_account,
+        );
+        echo um_login_widget_render_block( $args );
         exit;
     }
 
@@ -120,7 +138,6 @@ class UM_Login_Core {
         if ( ! empty( $args ) && is_array( $args ) ) {
             extract( $args );
         }
-        error_log( print_r( $args, true ) );
         $located = UM_Login_Core::locate_template( $template_name );
         if ( ! file_exists( $located ) ) {
             return;

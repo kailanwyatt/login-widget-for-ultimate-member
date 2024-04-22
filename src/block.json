@@ -8,8 +8,36 @@
 	"icon": "smiley",
 	"attributes": {
 		"form_id": {
-			"type": "integer",
+			"type": "string",
 			"default": 0
+		},
+		"title": {
+			"type": "string",
+			"default": "Log In"
+		},
+		"show_avatar":{
+			"type": "string",
+			"default": true
+		},
+		"show_account": {
+			"type": "string",
+			"default": true
+		},
+		"show_logout": {
+			"type": "string",
+			"default": true
+		},
+		"show_edit_profile": {
+			"type": "string",
+			"default": true
+		},
+		"show_profile_url": {
+			"type": "string",
+			"default": true
+		},
+		"show_profile_tabs": {
+			"type": "string",
+			"default": true
 		}
 	},
 	"keywords": [
