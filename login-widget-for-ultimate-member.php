@@ -4,7 +4,7 @@
  * Plugin URI: http://www.suiteplugins.com
  * Description: A login widget for Ultimate Member.
  * Author: SuitePlugins
- * Version: 1.1.0
+ * Version: 1.1.1
  * Author URI: http://www.suiteplugins.com
  * Text Domain: login-widget-for-ultimate-member
  * Domain Path: /languages
@@ -22,8 +22,10 @@ if ( ! defined( 'ABSPATH' ) ) {
 define( 'UM_LOGIN_URL', plugin_dir_url( __FILE__ ) );
 define( 'UM_LOGIN_PATH', plugin_dir_path( __FILE__ ) );
 define( 'UM_LOGIN_PLUGIN', plugin_basename( __FILE__ ) );
-define( 'UM_LOGIN_VERSION', '1.0.9.8' );
+define( 'UM_LOGIN_VERSION', '1.1.1' );
 
+require_once UM_LOGIN_PATH . 'includes/class-um-login-widget.php';
+require_once UM_LOGIN_PATH . 'includes/class-um-login-core.php';
 
 /**
  * UM Login Widget Loader
@@ -60,8 +62,7 @@ class UM_Login_Widget_Loader {
      * Load plugin files.
      */
     public function load_files() {
-        require_once UM_LOGIN_PATH . 'includes/class-um-login-widget.php';
-        require_once UM_LOGIN_PATH . 'includes/class-um-login-core.php';
+        
 
         $core = new UM_Login_Core();
         $core->hooks();
@@ -69,6 +70,11 @@ class UM_Login_Widget_Loader {
 }
 
 UM_Login_Widget_Loader::get_instance();
+
+add_action( 'widgets_init', 'um_login_form_register_widgets' );
+function um_login_form_register_widgets() {
+	register_widget( 'UM_Login_Widget' );
+}
 
 function um_login_widget_render_block( $attributes ) {
     if ( ! function_exists( 'UM' ) ) {

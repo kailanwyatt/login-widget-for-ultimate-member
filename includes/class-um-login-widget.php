@@ -12,7 +12,6 @@ if ( ! defined( 'ABSPATH' ) ) {
     exit;
 };
 
-
 /**
  * Adds UM_Login_Widget widget.
  */

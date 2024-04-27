@@ -20,7 +20,6 @@ class UM_Login_Core {
         add_shortcode( 'um_login_widget', array( $this, 'um_login_widget_shortcode_callback' ) );
         add_action( 'login_form_middle', array( $this, 'um_login_lost_password_link' ) );
         add_action( 'plugins_loaded', array( $this, 'um_login_widget_load_textdomain' ) );
-        add_action( 'widgets_init', array( $this, 'lw_um_register_widget' ) );
         add_action( 'enqueue_block_editor_assets', array( $this, 'register_block_assets' ) );
         add_action( 'wp_ajax_um_load_login_form', array( $this, 'um_load_login_form' ) );
         add_action( 'wp_enqueue_scripts', array( $this, 'um_login_widget_enqueue_scripts' ) );
@@ -96,13 +95,6 @@ class UM_Login_Core {
         }
         
         return um_login_widget_render_block( $args );
-    }
-
-    /**
-     * Register widget
-     */
-    public function lw_um_register_widget() {
-        register_widget( 'UM_Login_Core' );
     }
 
     /**

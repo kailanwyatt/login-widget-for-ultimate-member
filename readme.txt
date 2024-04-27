@@ -1,10 +1,10 @@
 === Login Widget for Ultimate Member ===
-Contributors: suiteplugins, kailanwyatt
+Contributors: suiteplugins, kailanw
 Tags: ultimate member, ultimate member login, login widget, ultimate member widget, ultimatemember login
 Donate link: https://suiteplugins.com/donate/
 Requires at least: 4.1
 Tested up to: 6.5.2
-Stable tag: 1.1.0
+Stable tag: 1.1.1
 Requires PHP: 5.6
 License: GNU Version 2 or Any Later Version
 License URI: http://www.gnu.org/licenses/gpl-3.0.txt
@@ -19,13 +19,13 @@ You can use the shortcode [um_login_widget].
 
 * Use the attribute **form_type** and the login form ID to display the appropriate login form. By default, the shortcode will display the default WordPress login. e.g [um_login_widget form_type="6"]
 * Use the attribute **hide_remember_me** and enter 1 to hide the remember me option. e.g [um_login_widget hide_remember_me="1"]
+* As of version 1.1.0, you have options to hide avatar, profile link, account link and profile tabs.
 
 = Other Ultimate Member Plugins =
 SuitePlugins is on the verge of creating some great addons for Ultimate Member. Here are a few that you may want to check out
 
 * [Gallery](https://suiteplugins.com/downloads/gallery-for-ultimate-members/?utm_source=wordpress&utm_medium=plugin&utm_content=login-widget) - **Most Popular** An easy drag and drop gallery for Ultimate Members.
 * [Events](https://suiteplugins.com/downloads/um-events-pro/?utm_source=wordpress&utm_medium=plugin&utm_content=login-widget)
-* [Classifieds](https://suiteplugins.com/downloads/classifieds-ultimate-member/?utm_source=wordpress&utm_medium=plugin&utm_content=login-widget) - Easy to use market place plugin for Ultimate Member
 * [Docs](https://suiteplugins.com/downloads/docs-for-ultimatemember/?utm_source=wordpress&utm_medium=plugin&utm_content=login-widget) - Let users upload files that can be seen publicly or privately
 * [Stories](https://suiteplugins.com/downloads/stories-for-ultimate-member/?utm_source=wordpress&utm_medium=plugin&utm_content=login-widget) - Allow users to have a journal or mini-blog from their profile.
 * [Visitors](https://suiteplugins.com/downloads/visitors-for-ultimate-members/?utm_source=wordpress&utm_medium=plugin&utm_content=login-widget) - Visitors allow users to see others that have visited their profile
@@ -106,6 +106,9 @@ Nothing right now.
 * Added Block for Login Form and Widget
 * Tested with WordPress 6.5.2
 * Test with Ultimate Member 2.8.5
+
+= 1.1.1 =
+* Fixed: Previous widget doesn't work anymore
 
 == Upgrade Notice ==
 None yet.

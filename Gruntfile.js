@@ -142,7 +142,7 @@ module.exports = function( grunt ) {
                     '!node_modules/**',
                     '!**/*.md',
                     '!.travis.yml',
-					'!.dist',
+					'!*.dist',
                     '!.bowerrc',
                     '!.gitignore',
                     '!bower.json',
