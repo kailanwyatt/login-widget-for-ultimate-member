@@ -4,7 +4,7 @@ Tags: ultimate member, ultimate member login, login widget, ultimate member widg
 Donate link: https://suiteplugins.com/donate/
 Requires at least: 4.1
 Tested up to: 6.5.2
-Stable tag: 1.1.1
+Stable tag: 1.1.2
 Requires PHP: 5.6
 License: GNU Version 2 or Any Later Version
 License URI: http://www.gnu.org/licenses/gpl-3.0.txt
@@ -109,6 +109,9 @@ Nothing right now.
 
 = 1.1.1 =
 * Fixed: Previous widget doesn't work anymore
+
+= 1.1.2 =
+* Fixed: UM Login Form not working. i.e Recaptcha, Registration etc
 
 == Upgrade Notice ==
 None yet.

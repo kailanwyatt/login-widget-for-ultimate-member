@@ -4,7 +4,7 @@
  * Plugin URI: http://www.suiteplugins.com
  * Description: A login widget for Ultimate Member.
  * Author: SuitePlugins
- * Version: 1.1.1
+ * Version: 1.1.2
  * Author URI: http://www.suiteplugins.com
  * Text Domain: login-widget-for-ultimate-member
  * Domain Path: /languages
@@ -22,7 +22,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 define( 'UM_LOGIN_URL', plugin_dir_url( __FILE__ ) );
 define( 'UM_LOGIN_PATH', plugin_dir_path( __FILE__ ) );
 define( 'UM_LOGIN_PLUGIN', plugin_basename( __FILE__ ) );
-define( 'UM_LOGIN_VERSION', '1.1.1' );
+define( 'UM_LOGIN_VERSION', '1.1.2' );
 
 require_once UM_LOGIN_PATH . 'includes/class-um-login-widget.php';
 require_once UM_LOGIN_PATH . 'includes/class-um-login-core.php';
@@ -82,7 +82,8 @@ function um_login_widget_render_block( $attributes ) {
     }
 
     $defaults = array(
-        'form_type'        => 'default',
+        'form_id'          => 0,
+        'form_type'        => 0,
         'hide_remember_me' => '',
         'number'           => uniqid(),
         'before_form'      => '',
@@ -141,6 +142,16 @@ function um_login_widget_render_block( $attributes ) {
     }
 
     $args = apply_filters( 'um_login_widget_render_block', $args );
+
+    // Set form_id if form_type is not empty. Fallback for old versions.
+    if ( ! empty( $args['form_type'] ) && empty( $args['form_id'] ) ) {
+        $args['form_id'] = $args['form_type'];
+    }
+
+    if ( empty( $args['form_type'] ) && ! empty( $args['form_id'] ) ) {
+        $args['form_type'] = $args['form_id'];
+    }
+
     ob_start();
     ?>
     <div id="um-login-widget-<?php echo esc_attr( $args['form_id'] ); ?>" class="um-login-widget">
